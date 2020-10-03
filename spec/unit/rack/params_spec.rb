@@ -158,7 +158,7 @@ Berry\r
     end
 
     it 'does not swallow exceptions from the app' do
-      app_exception = Class.new(Exception)
+      app_exception = Class.new(RuntimeError)
       expect(@app).to receive(:call).and_raise(app_exception)
       expect { @params.call(@env) }.to raise_error(app_exception)
     end
